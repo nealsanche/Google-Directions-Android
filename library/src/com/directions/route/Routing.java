@@ -59,9 +59,9 @@ public class Routing extends AsyncTask<LatLng, Void, Route> {
         }
     }
 
-    protected void dispatchOnSuccess(PolylineOptions mOptions) {
+    protected void dispatchOnSuccess(Route route, PolylineOptions mOptions) {
         for (RoutingListener mListener : _aListeners) {
-            mListener.onRoutingSuccess(mOptions);
+            mListener.onRoutingSuccess(route, mOptions);
         }
     }
 
@@ -117,7 +117,7 @@ public class Routing extends AsyncTask<LatLng, Void, Route> {
                 mOptions.add(point);
             }
 
-            dispatchOnSuccess(mOptions);
+            dispatchOnSuccess(result, mOptions);
         }
     }//end onPostExecute method
 }
