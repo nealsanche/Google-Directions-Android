@@ -11,7 +11,7 @@ public class Segment {
     /**
      * Turn instruction to reach next segment.
      */
-    private String instruction;
+    private CharSequence instruction;
     /**
      * Length of segment.
      */
@@ -34,7 +34,7 @@ public class Segment {
      * @param turn Turn instruction string.
      */
 
-    public void setInstruction(final String turn) {
+    public void setInstruction(final CharSequence turn) {
         this.instruction = turn;
     }
 
@@ -44,7 +44,7 @@ public class Segment {
      * @return a String of the turn instruction.
      */
 
-    public String getInstruction() {
+    public CharSequence getInstruction() {
         return instruction;
     }
 

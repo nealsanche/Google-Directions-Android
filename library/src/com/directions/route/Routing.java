@@ -37,7 +37,6 @@ public class Routing extends AsyncTask<LatLng, Void, Route> {
         }
     }
 
-
     public Routing(TravelMode mTravelMode) {
         this._aListeners = new ArrayList<RoutingListener>();
         this._mTravelMode = mTravelMode;
@@ -97,6 +96,7 @@ public class Routing extends AsyncTask<LatLng, Void, Route> {
         mBuf.append(dest.longitude);
         mBuf.append("&sensor=true&mode=");
         mBuf.append(_mTravelMode.getValue());
+        mBuf.append("&units=metric");
 
         return mBuf.toString();
     }

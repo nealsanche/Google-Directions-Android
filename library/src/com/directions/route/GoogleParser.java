@@ -1,5 +1,6 @@
 package com.directions.route;
 
+import android.text.Html;
 import android.util.Log;
 
 import com.google.android.gms.maps.model.LatLng;
@@ -78,9 +79,9 @@ public class GoogleParser extends XMLParser implements Parser {
                 final int length = step.getJSONObject("distance").getInt("value");
                 distance += length;
                 segment.setLength(length);
-                segment.setDistance(distance / 1000);
+                segment.setDistance(distance);
                 //Strip html from google directions and set as turn instruction
-                segment.setInstruction(step.getString("html_instructions").replaceAll("<(.*?)*>", ""));
+                segment.setInstruction(Html.fromHtml(step.getString("html_instructions")));
                 //Retrieve & decode this segment's polyline and add it to the route.
                 route.addPoints(decodePolyLine(step.getJSONObject("polyline").getString("points")));
                 //Push a copy of the segment to the route
